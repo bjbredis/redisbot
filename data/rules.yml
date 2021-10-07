@@ -1,0 +1,50 @@
+version: "2.0"
+rules:
+  - rule: botname
+    steps:
+      - intent: botname
+      - action: utter_botname
+  - rule: thankyou
+    steps:
+      - intent: thankyou
+      - action: utter_youarewelcome
+      - action: utter_anything_else
+  - rule: goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+  - rule: challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+  - rule: licensemodel
+    steps: 
+      - intent: licensemodel
+      - action: utter_licensemodel
+  - rule: moreinfo
+    steps: 
+      - intent: moreinfo
+      - action: utter_moreinfo
+  - rule: get_help
+    steps:
+      - intent: help
+      - action: utter_help
+
+  - rule: activate events signup form
+    steps: 
+      - intent: affirm
+      - action: eventreg_form
+      - active_loop: eventreg_form
+      # - action: utter_interest
+      # - intent: affirm
+      # - action: eventsignup
+
+
+  - rule: submit form
+    condition:
+    - active_loop: eventreg_form
+    steps:
+    - action: eventreg_form
+    - active_loop: null
+
+

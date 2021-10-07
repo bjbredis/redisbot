@@ -1,0 +1,137 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - yo
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: thankyou
+  examples: |
+    - thanks
+    - great, thank you
+    - thank you
+    - thanks friend
+
+- intent: botname
+  examples: | 
+    - what is your name?
+    - what should I call you?
+    - what are you called?
+    - what name do you go by?
+
+- intent: licensemodel
+  examples: |
+    - please explain the Redis license model
+    - can I pay only for support?
+    - I have a question about Redis licensing
+    - How is Redis licensed?
+    - what is the model for Redis licensing?
+    
+- intent: pricing
+  examples: |
+    - I'd like to get a price for my redis
+    - I would like pricing information about Redis Enterprise
+    - how can I get support for Redis?
+    - how much does Redis cost?
+    - Can I have a quote for my redis environment?
+    - I have Redis already, how much would it cost to license form you?
+
+- intent: moreinfo
+  examples: | 
+    - can you please share use-cases for Redis?
+    - how do customers use Redis?
+    - can i have more information about Redis?
+    - where can i get more redis info?
+    - do you have info about redis?
+    - I would like to learn more about Redis?
+    - how can I develop with Redis, Redisearch, or other modules?
+    - I want to learn about Redis
+
+- intent: events
+  examples: | 
+    - are there any upcoming events?
+    - do you have any webinars?
+    - are there live sessions in the future?
+    - do you have any live training coming up?
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: affirm
+  examples: |
+    - yeah
+    - correct
+    - uh huh
+    - yes please
+    - definitely
+    - ye
+    - uh yes
+    - let's do it
+    - yeah
+    - uh yes
+    - um yes
+    - yes knocking
+    - that's correct
+    - yes yes
+    - right
+    - yea
+    - yes
+    - yes right
+    - yes
+    - right on
+    - i love that
+
+- intent: deny
+  examples: |
+    - no
+    - no new selection
+    - no thanks
+    - no thank you
+    - uh no
+    - breath no
+    - do you have something else
+    - no this does not work for me
+
+- intent: help
+  examples: |
+    - what can you help me with?
+    - how can you help me?
+    - what kind of questions can I ask you?
+    - what do you know about?
+    - give me examples of how you can help
+
+- intent: stop
+  examples: |
+    - i'm finished
+    - enough for now
+    - exit

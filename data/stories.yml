@@ -1,0 +1,56 @@
+version: "2.0"
+stories:
+  - story: events + signup
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: events
+      - action: utter_events
+      - action: utter_interest
+      - intent: affirm
+      - action: eventreg_form
+      - active_loop: eventreg_form     
+      - active_loop: null
+      # - action: utter_done
+      # - action: utter_anything_else
+
+
+  # - story: events + nosignup
+  #   steps:
+  #     - intent: greet
+  #     - action: utter_greet
+  #     - intent: events
+  #     - action: utter_interest
+  #     - intent: deny
+  #     - action: utter_anything_else
+
+  # - story: events + nosignup
+  #   steps:
+  #     - intent: events
+  #     - action: utter_events
+  #     - action: utter_ask_signup
+  #     - intent: deny
+  #     - action: utter_anything_else
+  #     - active_loop: null
+
+#   - story: pricing
+#     steps:
+#       - active_loop: pricing_form
+#       - intent: stop
+#       - action: utter_ask_continue
+#       - intent: affirm
+#       - action: restaurant_form
+#       - active_loop: null
+#       - action: utter_submit
+#       - action: utter_slots_values
+
+  # - story: stop form + stop
+  #   steps:
+  #     - intent: request_restaurant
+  #     - action: restaurant_form
+  #     - active_loop: restaurant_form
+  #     - intent: stop
+  #     - action: utter_ask_continue
+  #     - intent: deny
+  #     - action: action_deactivate_loop
+  #     - active_loop: null

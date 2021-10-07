@@ -1,0 +1,180 @@
+version: "2.0"
+intents:
+  # - request_restaurant:
+  #     use_entities: []
+  - greet
+  - goodbye
+  - botname
+  - thankyou
+  - moreinfo
+  - stop
+  - licensemodel
+  - events
+  - bot_challenge
+  - pricing
+  - affirm
+  - deny
+  - help
+
+
+responses:
+  utter_greet:
+    - text: "Hey there!"
+    - text: "Hello!"
+    - text: "Greetings!"
+  utter_goodbye:
+    - text: "Goodbye, have a nice day!"
+    - text: "Great, see you later!"
+  utter_youarewelcome:
+    - text: "You're very welcome."
+    - text: "No problem at all!"
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa and Redis."
+    - text: "Why yes, I am indeed a bot, powered by Rasa and Redis."
+  utter_botname:
+    - text: "My name is Redisbot. I'm very pleased to meet you!"
+  utter_moreinfo:
+    - text: |
+        * You can take free online courses at <a href=\"http://university.redislabs.com\">Redis University</a>
+        * You can read all about Redis Enterprise <a href=\"http://docs.redislabs.com\">here</a>.
+        * You can try out Redis in the cloud <a href=\"https://redislabs.com/try-free/\">here</a>.
+        That should help get you started!
+  utter_events:
+    - text: |
+        Absolutely. We have the following upcoming events: 
+            1) Tomorrow 3pm ET: Redis and Microservices, a match made in heaven
+            2) Friday 9am PT: Redis and Cloud, it's the best!
+            ...
+    - text: |
+        We sure do. We have the following webinars right around the corner: 
+            1) Tomorrow 1pm ET: Redis and Business value
+            2) Next Thursday 11am PT: How to use Redis in Google Cloud
+            ...
+    - text: | 
+        We have just one, but it is later today!
+            1) Today! 2pm PT: Azure Cloud and Redis
+            ...          
+  utter_interest:
+    - text: "Are you interested?"
+    - text: "Do any of these interest you?"
+  utter_licensemodel: 
+    - text: |
+        Happy to help. Our license model is based on shards of your data set. 
+        * A shard is unit that represents a segment of your data. 
+        * We help you understand the number of shards you need based on the following:
+           - Estimated size of data set (in gigabytes)
+           - Estimated throughput measured in Redis operations per second (example: 1k ops/sec, 50k ops/sec)
+           - The number of production environments and non prod environments you would like supported.
+           - Based on best practices gathered over the years, a single production shard can support up to ~20GB and ~20k ops/sec
+        To save you some money, we do not need to license all of your infrastructure, just your active data set.
+  # utter_ask_email_form_signup: 
+  #   - text: "Would you like me to register you for these events? (yes / no)"
+  utter_ask_eventreg_form_email: 
+    - text: "Great, what is your email address?"
+  utter_done:
+    - text: "Ok, all done!"
+  utter_anything_else:
+    - text: "Is there anything else I can help you with?"  
+  utter_help: 
+    - text: |
+        I'm glad you asked! I can help you with info on Redis, upcoming events, training and webinars, 
+        Redis Enterprise pricing and license model. 
+  utter_ask_continue:
+    - text: "Do you want to continue?"  
+  utter_default:
+    - text: "Hmm, i'm having trouble following. Please try again!" 
+
+
+entities:
+  - yesno
+  - email
+  - datasize
+  - throughput
+  - activeactive
+  - numprodenvs
+  - numnonprodenvs
+
+
+slots:
+  signup:
+    type: categorical
+    values:
+      - yes
+      - no
+    # influence_conversation: false
+    # auto_fill: false
+  email:
+    type: text
+    # influence_conversation: false
+    # auto_fill: false
+  # datasize:
+  #   type: number
+  #   influence_conversation: false
+  #   auto_fill: false
+  # throughput:
+  #   type: number
+  #   influence_conversation: false
+  #   auto_fill: false
+  # activeactive:
+  #   type: categorical
+  #   values:
+  #     - yes
+  #     - no
+  #   influence_conversation: false
+  #   auto_fill: false
+  # numprodenvs:
+  #   type: number
+  #   influence_conversation: false
+  #   auto_fill: false
+  # numnonprodenvs:
+  #   type: number
+  #   influence_conversation: false
+  #   auto_fill: false
+
+
+
+forms:
+  eventreg_form:
+    # signup: 
+    #   - type: from_text
+    #     # entity: yesno  
+    email: 
+      - type: from_text
+        entity: email
+
+
+#   restaurant_form:
+#       cuisine:
+#         - type: from_entity
+#           entity: cuisine
+#           not_intent: chitchat
+#       num_people:
+#         - type: from_entity
+#           entity: number
+#           intent: [inform, request_restaurant]
+#       outdoor_seating:
+#         - type: from_entity
+#           entity: seating
+#         - type: from_intent
+#           intent: affirm
+#           value: true
+#         - type: from_intent
+#           intent: deny
+#           value: false
+#       preferences:
+#         - type: from_intent
+#           intent: deny
+#           value: no additional preferences
+#         - type: from_text
+#           not_intent: affirm
+#       feedback:
+#         - type: from_entity
+#           entity: feedback
+#         - type: from_text
+
+# actions:
+# - validate_restaurant_form
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true
